@@ -1,13 +1,13 @@
 # Spring Boot入门级
-###Spring Boot特点
+### Spring Boot特点
 	1.简化配置
 	2.备受关注，是下一代框架
 	3.微服务的入门级微框架
 
-###Spring Boot Hello World
+### Spring Boot Hello World
 
 ***
-####1.创建一个SpringBoot程序
+#### 1.创建一个SpringBoot程序
 
 * step1：选择Spring Initializer![-600](media/15091548892816/15091555688804.jpg)￼		
 * step2：填写项目信息
@@ -23,7 +23,7 @@
 
 	***
 
-###2.项目属性配置
+### 2.项目属性配置
 
 * **配置文件方式**
 
@@ -43,8 +43,9 @@
 
 * ****	
 
-####3.Controller的使用
-####4.Spring-data-jpa
+#### 3.Controller的使用
 
-####5.事务管理
+#### 4.Spring-data-jpa
+
+#### 5.事务管理
 
