@@ -1,0 +1,13 @@
+server:
+  port: 8082 #自定义端口
+  context-path: /will #项目访问路径
+
+name: http://www.baidu.com
+age: 18
+content: "name: ${name},age: ${age}" #在当前配置中使用配置
+
+#类似对象参数配置
+person:
+  name: peng
+  age: 19
+  address: 长沙

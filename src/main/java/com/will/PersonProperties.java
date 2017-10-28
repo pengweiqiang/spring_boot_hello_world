@@ -20,7 +20,7 @@ public class PersonProperties {
         return name;
     }
 
-    public void setNamel(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

@@ -18,7 +18,6 @@ public class HelloController {
     private Integer age;
     @Value("${content}")
     private String content;
-
     //获取application.yml中person对象参数
     @Autowired
     private PersonProperties personProperties;
