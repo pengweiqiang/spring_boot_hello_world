@@ -9,7 +9,7 @@
 ***
 ####1.创建一个SpringBoot程序
 
-* step1：选择Spring Initializer![-w600](media/15091548892816/15091555688804.jpg)￼		
+* step1：选择Spring Initializer![-600](media/15091548892816/15091555688804.jpg)￼		
 * step2：填写项目信息
 ![-w600](media/15091548892816/15091561458678.jpg)￼
 * step3：选择Web，创建Web项目
