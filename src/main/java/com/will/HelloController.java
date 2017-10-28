@@ -23,7 +23,7 @@ public class HelloController {
     private PersonProperties personProperties;
 
 
-    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    @RequestMapping(value = {"/hello","/hi"},method = RequestMethod.GET)
     public String say(){
         return "Hello Spring Boot";
     }
