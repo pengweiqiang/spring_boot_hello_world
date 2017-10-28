@@ -36,11 +36,11 @@
 * **获取配置参数**
 	
 ```
-@Value("${name}") private String name ;//获取application.yml中name单个参数 @Value("${age}") private Integer age;  
- @Value("${content}") private String content;  
-   
- @Autowired  
- private PersonProperties personProperties;//获取application.yml中person对象参数
+@Value("${name}") private String name ;//获取application.yml中name单个参数  
+@Value("${age}") private Integer age;  
+@Value("${content}") private String content;  
+@Autowired  
+private PersonProperties personProperties;//获取application.yml中person对象参数
 ```
 上述`PersonProperties`必须要加上`@Component`和`@ConfigurationProperties(prefix = "person")`注解
 
