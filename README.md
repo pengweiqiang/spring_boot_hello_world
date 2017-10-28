@@ -1,5 +1,5 @@
 # Spring Boot入门级
-###Spring Boot特点
+### Spring Boot特点
 	1.简化配置
 	2.备受关注，是下一代框架
 	3.微服务的入门级微框架
