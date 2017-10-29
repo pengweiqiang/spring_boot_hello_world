@@ -112,18 +112,16 @@ userName,@PathVariable("password")String password){
 	````
 	spring:  
 	   profiles:  
-       active: dev   #多环境配置选择  
+	    active: dev   #多环境配置选择  
        datasource:  
-       driver-class-name: com.mysql.jdbc.Driver  
+        driver-class-name: com.mysql.jdbc.Driver  
          url: jdbc:mysql://127.0.0.1/will  
          username: root  
          password: 123456  
        jpa:  
-       hibernate:  
+        hibernate:  
            ddl-auto: create #运行的时候会自动创建表，即使已经存在该表   		update 
            show-sql: true #控制台看见sql语句  
-  
-
 	````
 3. step3：对象映射具体表
 	![](media/15091548892816/15091891136198.jpg)￼
