@@ -3,12 +3,13 @@ package com.will;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by pengweiqiang on 2017/10/28.
  */
 @Entity
-public class User {
+public class User implements Serializable{
     @Id
     @GeneratedValue
     private Integer id;
@@ -43,5 +44,14 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
