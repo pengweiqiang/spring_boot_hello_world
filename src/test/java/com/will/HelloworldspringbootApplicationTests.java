@@ -46,4 +46,10 @@ public class HelloworldspringbootApplicationTests {
 //		System.out.println(userResponseEntity.toString());
 	}
 
+
+	@Test
+	public void addTwoUser(){
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.postForObject("http://localhost:8082/will/addTwoUser",null,User.class);
+	}
 }

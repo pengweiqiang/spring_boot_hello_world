@@ -36,8 +36,7 @@
 * **获取配置参数**
 	
 ```
-@Value("${name}") private String name ;//获取application.yml中name单个参数  
-@Value("${age}") private Integer age;  
+@Value("${name}") private String name ;//获取application.yml中name单个参数 @Value("${age}") private Integer age;  
 @Value("${content}") private String content;  
 @Autowired  
 private PersonProperties personProperties;//获取application.yml中person对象参数
@@ -50,3 +49,86 @@ private PersonProperties personProperties;//获取application.yml中person对象
  1. 手动更改环境：在application.yml中切换`active`属性。（dev|prod）
  2. 使用Java命令进行更改：首先`mvn install`进行编译，然后使用`java -jar target/项目.jar --spring.profiles.active=prod`
 	
+
+#### 3.Controller的使用
+
+注解方式 | 作用  |  示例
+------- | ------- | -------
+@Controller | 处理http请求 |
+@RestController | Spring4之后新加的注解，原来返回json需要@ResponseBody配合@Controller |
+@RequestMapping | 配置url映射 | @RequestMapping(value = {"/hello","/hi"},method = RequestMethod.GET)
+
+* 获取请求参数
+	* @PathVariable：获取url中的数据
+	
+	```
+@RequestMapping(value="/login/{userName}/{password}",method = RequestMethod.GET)  
+ public String login(@PathVariable("userName")String   
+userName,@PathVariable("password")String password){  
+     return userName+"  "+password;  
+     }
+
+	```
+	* @RequestParam：获取请求参数的值
+		
+	```
+	@RequestMapping(value="/login2",method = RequestMethod.GET)  
+	 public String login2(@RequestParam(value = "userName",required = false,defaultValue = "")  String userName,  
+	 @RequestParam("password")String password){  
+	      return userName+"  "+password;  
+	 }
+	```
+	* @GetMapping：组合注解。简化
+	
+	```
+	@GetMapping("/login")
+	@PostMaping("/login")
+	...
+	```
+	
+#### 4.Spring-data-jpa
+	
+**定义**：JPA(Java Persistence API)定义了一系列对象持久化的标准，目前实现这一规范的产品有Hibernate、Toplink等。
+
+1. step1：在maven中Pom.xml中添加mysql和spring-boot-jpa依赖
+
+	
+	```
+	<!--数据库-->
+	  <dependency>  
+	 	<groupId>mysql</groupId>
+		 	<artifactId>mysql-connector-java</artifactId>
+	</dependency>
+	 <!--spring-boot-jpa-->
+	 <dependency>
+	 	<groupId>org.springframework.boot</groupId>
+		 	<artifactId>spring-boot-starter-data-jpa</artifactId>	
+	</dependency>
+
+	```
+
+2. step2：添加数据库配置地址、jpa配置
+
+	````
+	spring:  
+	   profiles:  
+       active: dev   #多环境配置选择  
+       datasource:  
+       driver-class-name: com.mysql.jdbc.Driver  
+         url: jdbc:mysql://127.0.0.1/will  
+         username: root  
+         password: 123456  
+       jpa:  
+       hibernate:  
+           ddl-auto: create #运行的时候会自动创建表，即使已经存在该表   		update 
+           show-sql: true #控制台看见sql语句  
+  
+
+	````
+3. step3：对象映射具体表
+	![](media/15091548892816/15091891136198.jpg)￼
+
+
+#### 5.事务管理
+![](media/15091548892816/15092760188085.jpg)￼
+

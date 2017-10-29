@@ -1,5 +1,6 @@
 package com.will;
 
+import com.will.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,10 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+
+    @Autowired
+    private UserService userService;
 
     /**
      * 查询所有用户列表
@@ -51,6 +56,12 @@ public class UserController {
         return user;
     }
 
+    @GetMapping(value = "/getUserByAge/{age}")
+    public List<User> getUserByAge(@PathVariable("age")Integer age){
+        List<User> users = userRepository.findByAge(age);
+        return users;
+    }
+
     /**
      * 删除某个用户
      * @param id
@@ -76,5 +87,14 @@ public class UserController {
         User newUser = userRepository.save(user);
         System.out.println(newUser);
         return newUser;
+    }
+
+
+    /**
+     * 添加两个User
+     */
+    @PostMapping(value = "/addTwoUser")
+    public void addTwoUser(){
+        userService.insertTwoUser();
     }
 }
